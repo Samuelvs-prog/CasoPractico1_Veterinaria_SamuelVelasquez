@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Inicio - Clínica Veterinaria</title></head>
+<body>
+<section>
+    <!-- Campaña destacada del mes -->
+    <div class="promo-hero rounded-4 p-4 p-md-5 mb-4 text-white">
+        <span class="badge bg-warning text-dark mb-2">Campaña del mes</span>
+        <h2 class="display-5 fw-bold">Jornada de Vacunación 🐾</h2>
+        <p class="lead mb-3">Protege a tu mascota con el <strong>20% de descuento</strong> en vacuna antirrábica y múltiple.
+            Incluye revisión general gratuita.</p>
+        <a th:href="@{/#consultas}" class="btn btn-warning btn-lg"><i class="bi bi-calendar-check me-1"></i>Quiero más información</a>
+    </div>
+
+    <!-- Información de la clínica -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card info-card h-100 shadow-sm"><div class="card-body">
+                <h5><i class="bi bi-clock-fill text-teal me-2"></i>Horario</h5>
+                <p class="mb-0">Lunes a Viernes: 8:00 a.m. – 6:00 p.m.<br>Sábados: 8:00 a.m. – 12:00 m.d.<br>Emergencias 24/7</p>
+            </div></div>
+        </div>
+        <div class="col-md-4">
+            <div class="card info-card h-100 shadow-sm"><div class="card-body">
+                <h5><i class="bi bi-geo-alt-fill text-teal me-2"></i>Ubicación</h5>
+                <p class="mb-0">Alajuela, Costa Rica<br>200 m norte del parque central<br>Tel. 2222-3333</p>
+            </div></div>
+        </div>
+        <div class="col-md-4">
+            <div class="card info-card h-100 shadow-sm"><div class="card-body">
+                <h5><i class="bi bi-stars text-teal me-2"></i>Especialidades</h5>
+                <ul class="mb-0 ps-3">
+                    <li>Medicina preventiva y vacunación</li>
+                    <li>Cirugía y esterilización</li>
+                    <li>Dermatología</li>
+                    <li>Estética y spa canino</li>
+                </ul>
+            </div></div>
+        </div>
+    </div>
+
+    <!-- iframe: video/imagen de la clínica (la URL se lee de messages.properties) -->
+    <h3 class="section-title mb-3">Conoce nuestras instalaciones</h3>
+    <div class="ratio ratio-16x9 mb-5 shadow rounded-4 overflow-hidden">
+        <iframe th:src="#{home.video.url}" title="Video de la clínica" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <!-- Formulario de consultas (solo interfaz) -->
+    <div id="consultas" class="card shadow-sm">
+        <div class="card-header form-header"><h4 class="mb-0"><i class="bi bi-chat-dots me-2"></i>Envíanos tu consulta</h4></div>
+        <div class="card-body">
+            <form th:action="@{/consultas}" method="post" class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="correo">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correo" name="correo" required>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label" for="mascota">Nombre de la mascota</label>
+                    <input type="text" class="form-control" id="mascota" name="mascota" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label" for="mensaje">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-teal"><i class="bi bi-send me-1"></i>Enviar consulta</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

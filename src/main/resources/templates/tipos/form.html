@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/base :: layout(~{::title}, ~{::section})}">
+<head><title>Formulario Tipo de Servicio</title></head>
+<body>
+<section>
+    <div class="card shadow-sm col-lg-7 mx-auto">
+        <div class="card-header form-header">
+            <h4 class="mb-0" th:text="${tipo.id == null} ? 'Agregar tipo de servicio' : 'Editar tipo de servicio'">Tipo</h4>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/tipos/guardar}" th:object="${tipo}" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div class="mb-3">
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input type="text" class="form-control" th:field="*{nombre}" maxlength="80" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="descripcion">Descripción</label>
+                    <textarea class="form-control" th:field="*{descripcion}" rows="3" maxlength="255"></textarea>
+                </div>
+                <button type="submit" class="btn btn-teal"><i class="bi bi-save me-1"></i>Guardar</button>
+                <a th:href="@{/tipos}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

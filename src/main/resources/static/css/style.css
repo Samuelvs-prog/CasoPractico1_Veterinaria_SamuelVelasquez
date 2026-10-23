@@ -1,0 +1,15 @@
+:root { --teal:#2a9d8f; --navy:#264653; --sand:#f4a261; --bg:#f4faf9; }
+body { background: var(--bg); color: #2b3a42; }
+.site-header { background: var(--navy); }
+.site-nav { background: var(--teal); }
+.site-nav .nav-link { color: #fff; font-weight: 500; }
+.site-nav .nav-link:hover { color: var(--sand); }
+.site-footer { background: var(--navy); }
+.section-title { color: var(--navy); font-weight: 700; border-left: 6px solid var(--sand); padding-left: .6rem; }
+.text-teal { color: var(--teal); }
+.btn-teal { background: var(--teal); color: #fff; border: none; }
+.btn-teal:hover { background: #21867a; color: #fff; }
+.table-teal th { background: var(--teal); color: #fff; }
+.form-header { background: var(--teal); color: #fff; }
+.promo-hero { background: linear-gradient(135deg, var(--teal), var(--navy)); box-shadow: 0 8px 24px rgba(38,70,83,.25); }
+.info-card { border: none; border-top: 4px solid var(--sand); }
